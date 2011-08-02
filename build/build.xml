@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<project name="Glimpse" default="release" basedir=".">
+  <target name="prepare">
+    <echo msg="Creating build directory: ./build" />
+    <mkdir dir="./build" />
+  </target>
+
+  <target name="build" depends="prepare">
+    <echo msg="Copying source files to build directory..." />
+    <copy todir="./build" overwrite="true">
+      <fileset dir="../source">
+        <include name="**/*.*" />
+      </fileset>
+    </copy>
+    <copy todir="./" overwrite="true">
+      <fileset dir="../source">
+        <include name="glimpse.ini" />
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="compile" depends="build">
+	<pharpackage destfile="./glimpse.phar" basedir="./build">
+	  <fileset dir=".">
+	    <include name="**/**" />
+        <exclude name="glimpse.ini" />
+	  </fileset>
+	  <metadata>
+	    <element name="version" value="1.0" />
+	    <element name="authors">
+	      <element name="Maarten Balliauw">
+	        <element name="e-mail" value="maarten@maartenballiauw.be" />
+	      </element>
+	    </element>
+	  </metadata>
+	</pharpackage>
+  </target>
+
+  <target name="release" depends="compile">
+    <echo msg="Cleaning build directory: ./build" />
+    <delete dir="./build" />
+  </target>
+</project>
