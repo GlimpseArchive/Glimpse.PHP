@@ -11,6 +11,16 @@ Fundamentally Glimpse is made up of 3 different parts, all of which are extensib
 * Glimpse Protocol
 
 
+Getting started
+---------------
+Installing Glimpse in a PHP application is very straightforward. Glimpse is supported starting with PHP 5.2 or higher.
+
+* For PHP 5.2, copy the source folder of this repository to your server and add <?php include '/path/to/glimpse/index.php'; ?> as early as possible in your PHP script.
+* For PHP 5.3, copy the glimpse.phar file from the build folder of this repository to your server and add <?php include 'phar://path/to/glimpse.phar'; ?> as early as possible in your PHP script.
+
+From that moment, navigate to your web application and append the ?glimpseFile=Config query string to enable/disable Glimpse. Optionally, a client name can also be specified to distinguish remote requests.
+
+
 How it Works
 ------------
 On the Server:
@@ -57,13 +67,3 @@ Eventually, we would like to have actual browser plugins that provide richer fun
 Protocol
 -------- 
 Details on the Glimpse protocol can be found at http://getglimpse.com/Protocol.
-
-
-Getting started
----------------
-Installing Glimpse in a PHP application is very straightforward. Glimpse is supported starting with PHP 5.2 or higher.
-
-* For PHP 5.2, copy the source folder of this repository to your server and add <?php include '/path/to/glimpse/index.php'; ?> as early as possible in your PHP script.
-* For PHP 5.3, copy the glimpse.phar file from the build folder of this repository to your server and add <?php include 'phar://path/to/glimpse.phar'; ?> as early as possible in your PHP script.
-
-From that moment, navigate to your web application and append the ?glimpseFile=Config query string to enable/disable Glimpse. Optionally, a client name can also be specified to distinguish remote requests.
