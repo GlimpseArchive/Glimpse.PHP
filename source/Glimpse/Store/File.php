@@ -11,7 +11,12 @@ class Glimpse_Store_File
 	
 	public function __construct($fileName = null) {
 		if (is_null($fileName)) {
-			$fileName = sys_get_temp_dir() . 'glimpsestore' . md5(__FILE__);
+			$tmpDir = sys_get_temp_dir();
+			if (substr($tmpDir, -1 ) != '/' && substr($tmpDir, -1 ) != '\\') {
+				$tmpDir .= '/';
+			}
+
+			$fileName = $tmpDir . 'glimpsestore' . md5(__FILE__);
 		}
 		
 		$this->_fileName = $fileName;
