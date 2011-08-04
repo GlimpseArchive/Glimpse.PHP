@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <project name="Glimpse" default="release" basedir=".">
   <target name="prepare">
-    <echo msg="Creating build directory: ./build" />
+    <echo message="Creating build directory: ./build" />
     <mkdir dir="./build" />
   </target>
 
   <target name="build" depends="prepare">
-    <echo msg="Copying source files to build directory..." />
+    <echo message="Copying source files to build directory..." />
     <copy todir="./build" overwrite="true">
       <fileset dir="../source">
         <include name="**/*.*" />
@@ -37,7 +37,7 @@
   </target>
 
   <target name="release" depends="compile">
-    <echo msg="Cleaning build directory: ./build" />
+    <echo message="Cleaning build directory: ./build" />
     <delete dir="./build" />
   </target>
 </project>
